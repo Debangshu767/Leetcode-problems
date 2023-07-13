@@ -7,7 +7,7 @@ public:
         for(int i = 0;i<encoded.size();i++)
         {
             ans.push_back(first^encoded[i]);
-            first = first^encoded[i];
+            first = ans.back();
             
             
         }

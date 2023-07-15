@@ -21,8 +21,6 @@ public:
                 ans.push_back(0);
             else if(nums[i] == 0 && contains0<2)
                 ans.push_back(product);
-            else if(nums[i] == 0 && contains0>2)
-                ans.push_back(product);
             else if(contains0 == 0)
                 ans.push_back(product/nums[i]);
             else if(nums[i] != 0 && contains0 == 1)

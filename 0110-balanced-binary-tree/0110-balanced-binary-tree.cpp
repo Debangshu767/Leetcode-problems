@@ -20,6 +20,8 @@ public:
         int lh = getHeight(root->left);
         int rh = getHeight(root->right);
         
+        if(abs(lh-rh) > 1) return -1;
+        
         return 1+ max(lh,rh);
     }
     
@@ -33,6 +35,8 @@ public:
         
         cout<<lh<<endl;
         cout<<rh;
+        if(lh == -1 || rh == -1)
+            return false;
         
         if(abs(lh-rh) >1)
             return false;

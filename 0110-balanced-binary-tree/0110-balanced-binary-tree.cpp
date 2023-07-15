@@ -20,6 +20,7 @@ public:
         int lh = getHeight(root->left);
         int rh = getHeight(root->right);
         
+        if(lh == -1 || rh == -1) return -1;
         if(abs(lh-rh) > 1) return -1;
         
         return 1+ max(lh,rh);
@@ -27,7 +28,7 @@ public:
     
     bool isBalanced(TreeNode* root) {
         
-        if(root == NULL)
+       /* if(root == NULL)
             return true;
         
         int lh = getHeight(root->left);
@@ -35,8 +36,7 @@ public:
         
         cout<<lh<<endl;
         cout<<rh;
-        if(lh == -1 || rh == -1)
-            return false;
+        
         
         if(abs(lh-rh) >1)
             return false;
@@ -45,6 +45,18 @@ public:
        int right = isBalanced(root->right);
         
         if(!left || !right) return false;
+        
+        return true; */
+        
+        if(root == NULL)
+            return true;
+        
+        int lh = getHeight(root->left);
+        int rh = getHeight(root-> right);
+        
+        if(lh == -1 || rh == -1)
+            return false;
+        if(abs(lh-rh) > 1) return false;
         
         return true;
         

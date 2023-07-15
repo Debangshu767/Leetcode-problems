@@ -19,7 +19,7 @@ public:
        int lh = maxDepth(root->left);
        int rh = maxDepth(root->right);
         
-        return max(1+lh,1+rh);
+        return 1 + max(lh,rh);
         
     }
 };

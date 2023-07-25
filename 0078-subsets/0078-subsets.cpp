@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> ans;
     
-    void combi(vector<int> nums,int i,vector<int> temp)
+    void combi(vector<int> nums,int i,vector<int>& temp)
     {
         if( i == nums.size())
         {

@@ -14,6 +14,7 @@ public:
         combi(nums,i+1, temp);
         temp.push_back(nums[i]);
         combi(nums,i+1,temp);
+        temp.pop_back();
         
     }
     

@@ -9,27 +9,13 @@ public:
             return 1;
         
         int first,second;
-        if(arr[n-1] != -1)
+        if(arr[n] != -1)
         {
-            first = arr[n-1];
-        }
-        else
-        {
-            first =  fibodp(n-1,arr);
-                arr[n-1] = first;
-        }
-        
-        if(arr[n-2] != -1)
-        {
-            second = arr[n-2];
-        }
-        else{
-            second = fibodp(n-2,arr);
-            arr[n-2] = second;
+            return arr[n];
         }
             
         
-       return  first  +  second;
+       return arr[n] =   fibodp(n-1,arr)  + fibodp(n-2,arr);
         
     }
     

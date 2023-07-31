@@ -27,17 +27,18 @@ public:
         dp[0] = nums[0];
         int prev = dp[0];
         int prev2 = 0;
+        int take,nontake,curr;
         
         for(int i = 1;i<nums.size();i++)
         {
             
             
-          int  take = nums[i] + prev2;
-           int nontake = prev;
+            take = nums[i] + prev2;
+            nontake = prev;
             
             
             
-        int    curr = max(take,nontake);
+            curr = max(take,nontake);
             
             prev2 = prev;
             prev = curr;

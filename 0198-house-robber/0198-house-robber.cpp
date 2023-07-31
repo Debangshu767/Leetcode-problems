@@ -20,18 +20,14 @@ public:
     
     int rob(vector<int>& nums) {
         
-        int ans = 0;
-        vector<int> dp(nums.size()+1,-1);
       // return  robre(nums,0,ans,dp);
-        
-        dp[0] = nums[0];
-        int prev = dp[0];
+        int prev = nums[0];
         int prev2 = 0;
-        int take,nontake,curr;
+       
         
         for(int i = 1;i<nums.size();i++)
         {
-            
+             int take,nontake,curr;
             
             take = nums[i] + prev2;
             nontake = prev;

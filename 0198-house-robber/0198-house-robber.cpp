@@ -25,22 +25,26 @@ public:
       // return  robre(nums,0,ans,dp);
         
         dp[0] = nums[0];
-        
-        int neg = 0;
+        int prev = dp[0];
+        int prev2 = 0;
         
         for(int i = 1;i<nums.size();i++)
         {
-            int take,nontake;
-            if(i == 1)
-                take = nums[i];
-            else
-            take = nums[i] + dp[i-2];
-            nontake = dp[i-1];
             
-            dp[i] = max(take,nontake);
+            
+          int  take = nums[i] + prev2;
+           int nontake = prev;
+            
+            
+            
+        int    curr = max(take,nontake);
+            
+            prev2 = prev;
+            prev = curr;
+            
         }
         
-        return dp[nums.size()-1];
+        return prev;
         
         
     }

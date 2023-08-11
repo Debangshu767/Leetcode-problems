@@ -1,24 +1,17 @@
 class Solution {
 public:
     
-    int finds(vector<int> &nums, int i, int target, unordered_map<string, int> &dp)
-    {
-        if(i == nums.size())
-            return target == 0;
-        
-        string key = to_string(i) + "_" + to_string(target);
-        if(dp.find(key) != dp.end())
-            return dp[key];
-        
-        int count = 0;
-        count += finds(nums, i+1, target - nums[i], dp);
-        count += finds(nums, i+1, target + nums[i], dp);
-        
-        return dp[key] = count;
-    }
     
-    int findTargetSumWays(vector<int>& nums, int target) {
-        unordered_map<string, int> dp;
-        return finds(nums, 0, target, dp);
+    int find(int p, vector<int>& nums, int sum, vector<unordered_map<int,int>>& mem) {
+        if(p==nums.size()) return sum==0;
+        auto it = mem[p].find(sum);
+        if(it != mem[p].end()) return it->second;
+        return mem[p][sum]=find(p+1,nums,sum+nums[p],mem)+find(p+1,nums,sum-nums[p],mem);
+    }
+   int findTargetSumWays(vector<int>& nums, int S) {
+        vector<unordered_map<int,int>> mem(nums.size());
+        return find(0,nums,S,mem);    
     }
 };
+
+

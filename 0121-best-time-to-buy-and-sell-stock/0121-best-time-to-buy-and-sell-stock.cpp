@@ -7,8 +7,8 @@ public:
         
         for(int i = 1;i<prices.size();i++)
         {
-            profit = max(profit,prices[i]-currmin);
-            currmin = min(currmin,prices[i]);
+            profit = prices[i]-currmin > profit ? prices[i]-currmin : profit;
+            currmin = currmin < prices[i] ? currmin : prices[i];
         }
         
         return profit;

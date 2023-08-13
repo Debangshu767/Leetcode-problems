@@ -18,7 +18,7 @@ public:
                {
                    if(jump(nums,i+ind,dp)) return dp[i] =  1;
                else
-                   dp[i] = 0;
+                    dp[i] = 0;
                }
                 
            }

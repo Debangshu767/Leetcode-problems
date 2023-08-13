@@ -15,7 +15,12 @@ public:
            for(int ind = 1 ;ind <= nums[i];ind++ )
            {
                if(i+ind < nums.size())
-                if(jump(nums,i+ind,dp)) return dp[i] =  1;
+               {
+                   if(jump(nums,i+ind,dp)) return dp[i] =  1;
+               else
+                   dp[i] = 0;
+               }
+                
            }
        }
         return dp[i] =  0;

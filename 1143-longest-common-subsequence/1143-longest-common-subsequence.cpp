@@ -26,16 +26,10 @@ public:
         int jnd = t2.size();
         vector<vector<int>>dp (ind+1,vector<int>(jnd+1,0));
         
-            for(int j = 0;j<=jnd;j++)
-            {
-                if(t1[0] == t2[j])
-                 dp[0][j] = 0;
-            } 
-        for(int i = 0;i<=ind;i++)
-            {
-                if(t1[i] == t2[0])
-                 dp[i][0] = 0;
-            }
+        for(int j = 0;j<=jnd;j++)  dp[0][j] = 0;
+        for(int i = 0;i<=ind;i++)     dp[i][0] = 0;
+        
+        
         for(int i = 1;i<=ind;i++)
         {
             for(int j = 1 ;j<=jnd;j++)

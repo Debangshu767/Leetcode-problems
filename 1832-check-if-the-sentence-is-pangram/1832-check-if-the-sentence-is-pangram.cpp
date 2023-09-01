@@ -2,16 +2,19 @@ class Solution {
 public:
     bool checkIfPangram(string se) {
         
-     map<char,bool> mp;
+    vector<int> c(26,0);
         
         
         for(int i = 0;i<se.size();i++)
         {
-            mp[se[i]] = true;
+            c[se[i] - 'a'] = 1;
         }
         
-        if(mp.size() != 26)
-            return false;
+        for(int i = 0;i<c.size();i++)
+        {
+            if(c[i] == 0)
+                return false;
+        }
         
         return true;
         

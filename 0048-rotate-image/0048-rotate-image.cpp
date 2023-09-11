@@ -2,7 +2,6 @@ class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
 
-        vector<vector<int>> ans;
         
         int size = matrix.size();
 

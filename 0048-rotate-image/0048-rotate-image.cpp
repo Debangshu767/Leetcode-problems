@@ -5,9 +5,9 @@ public:
         
         int size = matrix.size();
 
-        for(int i = 0;i<size;i++)
+        for(int i = 0;i<size-1;i++)
         {
-            for(int j = 0;j<i;j++)
+            for(int j = i+1;j<size;j++)
             {
                 swap(matrix[i][j],matrix[j][i]);
             }

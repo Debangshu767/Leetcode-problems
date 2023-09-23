@@ -9,13 +9,13 @@ public:
         
         for(int i = 0;i<ct.length();i++)
         {
-            if(i == ct.length()-1)
-                ans+= ct[i] - 'A' + 1;
+            // if(i == ct.length()-1)
+            //     ans+= ct[i] - 'A' + 1;
             
-            else
-            {
+            // else
+            // {
                 ans += (ct[i] - 'A' + 1)*pow(26,ct.length()-1-i);
-            }
+            // }
         }
         
         return ans;

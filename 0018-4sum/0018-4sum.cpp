@@ -9,7 +9,7 @@ public:
         { 
             for(int j = i+1;j<n;j++)
             {
-                set<long long> hashset;
+                unordered_set<long long> hashset;
                 for(int k = j+1;k<n;k++)
                 {
                     long long sum = nums[i];

@@ -2,32 +2,53 @@ class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         
-        int n = nums.size();
-        //sort(nums.begin(),nums.end());
-        set<vector<int>> st;
-        for(int i = 0;i<n;i++)
-        { 
-            for(int j = i+1;j<n;j++)
+         sort(nums.begin(),nums.end());
+        //set<vector<int>> sans;
+        vector<vector<int>> ans;
+        for(int i = 0;i<nums.size();i++)
+        {
+            if( i != 0 && nums[i] == nums[i-1])
+                continue;
+            
+            for(int m = i+1;m<nums.size();m++)
             {
-                unordered_set<long long> hashset;
-                for(int k = j+1;k<n;k++)
+                if( m != i+1 && nums[m] == nums[m-1])
+                continue;
+                
+            int j = m+1;
+            int k = nums.size()-1;
+            
+            while(j<k)
+            {
+                long long sum = nums[i]+nums[j];
+                sum+= nums[k];
+                sum+= nums[m];
+                if(sum == target)
                 {
-                    long long sum = nums[i];
-                    sum += nums[j];
-                    sum += nums[k];
-                    long long l = target - sum;
-                    if(hashset.find(l) != hashset.end())
-                    {
-                        vector<int> temp = {nums[i],nums[j],nums[k],int(l)};
-                        sort(temp.begin(),temp.end());
-                        st.insert(temp);
+                    vector<int> temp = {nums[i],nums[j],nums[k],nums[m]};
+                    //sans.insert(temp);
+                    ans.push_back(temp);
+                    while (j < k && nums[j] == nums[j + 1]) {
+                        j++;
                     }
-                    hashset.insert(nums[k]);
+                    j++;
+                    
+                    while (j < k && nums[k - 1] == nums[k]) {
+                        k--;
+                    }
+                    k--;
                 }
+                else if(sum <target)
+                    j++;
+                else if(sum >target)
+                    k--;
             }
         }
+                
+            }
+            
         
-        vector<vector<int>> ans(st.begin(),st.end());
+        //vector<vector<int>> ans(sans.begin(),sans.end());
         
         return ans;
         

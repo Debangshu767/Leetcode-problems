@@ -12,29 +12,31 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {
         
-        vector<int> arr;
         
-        ListNode* temp = head;
-        
-        while(temp)
+        ListNode *slow = head, *fast = head, *prev, *temp;
+        while (fast && fast->next)
         {
-            arr.push_back(temp->val);
-            temp = temp->next;
+            slow = slow->next;
+            fast = fast->next->next;
         }
+            
+        prev = slow;
+        slow = slow->next;
+        prev->next = NULL;
         
-        reverse(arr.begin(),arr.end());
-        
-        
-        temp = head;
-        int i = 0;
-        while(temp)
+        while (slow)
         {
-            if(temp->val != arr[i++])
-                return false;
-            temp = temp->next;
+            temp = slow->next;
+            slow->next = prev;
+            prev = slow;
+            slow = temp;
         }
-        
+            
+        fast = head;
+        slow = prev;
+        while (slow)
+            if (fast->val != slow->val) return false;
+            else fast = fast->next, slow = slow->next;
         return true;
-        
     }
 };

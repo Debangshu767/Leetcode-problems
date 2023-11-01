@@ -2,13 +2,20 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) {
         
-        int ans = nums[0];
+        unordered_map<int,int> mp;
         
-        for(int i = 1;i<nums.size();i++)
+        for(int i = 0;i<nums.size();i++)
         {
-            ans = ans^nums[i];
+            mp[nums[i]]++;
         }
         
-        return ans;
+        for(auto it : mp)
+        {
+            if(it.second == 1)
+                return it.first;
+        }
+        
+        return -1;
+        
     }
 };

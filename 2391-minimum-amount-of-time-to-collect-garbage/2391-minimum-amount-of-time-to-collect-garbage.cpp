@@ -2,61 +2,48 @@ class Solution {
 public:
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
         
-        int time = 0;
         
-        int timem = 0;
         int timep = 0;
+        int timem = 0;
         int timeg = 0;
+        int lastp = 0;
+        int lastm = 0;
+        int lastg = 0;
         int movetime = 0;
-        int lastidxm = 0;
-        int lastidxp =0;
-        int lastidxg = 0;
-        
-        
-        
-       
+        for(int i = 0;i<garbage.size();i++)
+        {
+            for(auto garbageType : garbage[i])
+            {
+                if(garbageType == 'P')
+                {
+                    timep++;
+                    lastp = i;
+                    
+                }
+                if(garbageType == 'M')
+                {
+                    timem++;
+                    lastm = i;
+                }
+                if(garbageType == 'G')
+                {
+                    timeg++;
+                    lastg = i;
+                }
+            }
+        }
         
         for(int i = 0;i<garbage.size();i++)
         {
-
-            
-            for(int j = 0 ; j< garbage[i].length();j++)
-            {
-                
-                
-                if(garbage[i][j] == 'M')
-                {
-                    timem++;
-                    lastidxm = i;
-                    
-                }
-                
-                 if(garbage[i][j] == 'P')
-                {
-                    timep++;
-                     lastidxp = i;
-                }
-                if(garbage[i][j] == 'G')
-                {
-                    timeg++;
-                    lastidxg = i;
-                }
-                    
-            }
-
+            if(lastp > i)
+                movetime += travel[i];
+            if(lastm > i)
+                movetime += travel[i];
+            if(lastg > i)
+                movetime += travel[i];
         }
         
-        for(int i = 0;i<travel.size();i++)
-        {
-            if(lastidxm>i)
-                movetime+=travel[i];
-            if(lastidxp>i)
-                movetime+=travel[i];
-            if(lastidxg>i)
-                movetime+=travel[i];
-        }
-        
-        return movetime+timem+timep+timeg;
+        return timep + timem + timeg + movetime;
         
     }
 };

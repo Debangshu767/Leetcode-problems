@@ -2,22 +2,20 @@ class Solution {
 public:
     bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
         
-        string st1;
-        string st2;
+        string s1,s2;
         
-        for(int i = 0;i<word1.size();i++)
+        for(auto elem : word1)
         {
-            st1+= word1[i];
+            s1+=elem;
         }
         
-        for(int i = 0;i<word2.size();i++)
+        for(auto elem : word2)
         {
-            st2+= word2[i];
+            s2+=elem;
         }
         
-        if(st1 == st2)
-            return true;
-        else
-            return false;
+        return(s1 == s2);
+        
+        
     }
 };
